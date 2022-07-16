@@ -1,1 +1,2 @@
-# NewsApp
+# NewsApp 
+not finshed yet!
