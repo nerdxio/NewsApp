@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.newsapp.R
+import com.example.newsapp.db.ArticleDatabase
 import kotlinx.android.synthetic.main.activity_news.*
 
 class NewsActivity : AppCompatActivity() {
@@ -14,5 +15,6 @@ class NewsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_news)
 
         bottomNavigationView.setupWithNavController(newsNavHostFragment.findNavController())
+
     }
 }

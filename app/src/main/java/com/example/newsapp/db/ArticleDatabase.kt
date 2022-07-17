@@ -13,6 +13,7 @@ import com.example.newsapp.models.Article
 
       abstract fun getArticleDao():ArticleDao
 
+      //singleton
       companion object{
           @Volatile
           private var instance: ArticleDatabase?=null
