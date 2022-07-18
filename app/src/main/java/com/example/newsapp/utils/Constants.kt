@@ -4,5 +4,6 @@ class Constants {
     companion object{
         const val API_KEY = "cca6db3da57c46d28aa8ca8bbe4fb2ca"
         const val BASE_URL = "https://newsapi.org"
+        const val SEARCH_NEWS_TIME_DELAY=500L
     }
 }
