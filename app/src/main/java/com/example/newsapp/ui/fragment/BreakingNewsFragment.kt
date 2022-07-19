@@ -3,8 +3,10 @@ package com.example.newsapp.ui.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsapp.R
 import com.example.newsapp.adapters.NewsAdapter
@@ -22,6 +24,17 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
         //it is share view model
         viewModel = (activity as NewsActivity).viewModel
         setupRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article",it)
+            }
+            findNavController().navigate(
+                R.id.action_breakingNewsFragment_to_articleFragment,
+                bundle
+            )
+            Toast.makeText(requireContext(),"click",Toast.LENGTH_LONG).show()
+        }
 
         viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
             when (response) {

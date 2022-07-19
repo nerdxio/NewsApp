@@ -13,7 +13,25 @@ import kotlinx.android.synthetic.main.item_article_preview.view.*
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticaleViewHolder>() {
 
-    inner class ArticaleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    inner class ArticaleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindData(article: Article?) {
+            article?.let {
+                itemView.apply {
+                    Glide.with(this).load(article.urlToImage).into(ivArticleImage)
+                    tvSource.text = article.source.name
+                    tvTitle.text = article.title
+                    tvDescription.text = article.description
+                    tvPublishedAt.text = article.publishedAt
+                    setOnClickListener {
+                        onItemClickListener?.also {
+                            it(article)
+                        }
+                    }
+                }
+            }
+
+        }
+    }
 
     private val differCallback = object : DiffUtil.ItemCallback<Article>() {
 
@@ -39,24 +57,27 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticaleViewHolder>() {
         return differ.currentList.size
     }
 
+
     override fun onBindViewHolder(holder: ArticaleViewHolder, position: Int) {
-       val article = differ.currentList[position]
-        holder.itemView.apply {
-            Glide.with(this).load(article.urlToImage).into(ivArticleImage)
-            tvSource.text = article.source.name
-            tvTitle.text =article.title
-            tvDescription.text=article.description
-            tvPublishedAt.text=article.publishedAt
-            setOnItemClickListener {
-                onItemClickListener?.let { it(article) }
-            }
-        }
+        val article = differ.currentList[position]
+        holder.bindData(article)
+//        holder.itemView.apply {
+//            Glide.with(this).load(article.urlToImage).into(ivArticleImage)
+//            tvSource.text = article.source.name
+//            tvTitle.text =article.title
+//            tvDescription.text=article.description
+//            tvPublishedAt.text=article.publishedAt
+//             setOnClickListener {
+//                onItemClickListener?.also {
+//                    it(article) }
+//            }
+//        }
     }
 
-    private var onItemClickListener : ((Article) -> Unit)? =null
+    private var onItemClickListener: ((Article) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (Article)->Unit){
-        onItemClickListener =listener
+    fun setOnItemClickListener(listener: (Article) -> Unit) {
+        onItemClickListener = listener
     }
 
 }
