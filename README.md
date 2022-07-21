@@ -1,7 +1,10 @@
 # News App 
+🧪it is news app using modern android componnets and tools   
 ## app functionality
+🧪Seach about news  
+🧪add news to favorite news  
+🧪delete news   
 ## tools and technologies
- I used on it
 🧪 Kotlin+ Coroutines + LiveData + Kotlin ktx   
 🧪 JetPack - Lifecycle, ViewModel   
 🧪 Architecture - MVVM   
