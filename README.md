@@ -1,7 +1,7 @@
 # News App 
 
  I used on it
-🧪 Kotlin+ Coroutines + LiveData + Kotlin ktx .
+🧪 Kotlin+ Coroutines + LiveData + Kotlin ktx /n.
 🧪 JetPack - Lifecycle, ViewModel
 🧪 Architecture - MVVM
 🧪 Navigation components ( single activity with 4 fragments)
