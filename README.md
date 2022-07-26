@@ -3,7 +3,7 @@
 ## app functionality
 🧪Seach about news  
 🧪add news to favorite news  
-🧪delete news   
+🧪delete news by swiping left   
 ## tools and technologies
 🧪 Kotlin+ Coroutines + LiveData + Kotlin ktx   
 🧪 JetPack - Lifecycle, ViewModel   
