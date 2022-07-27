@@ -13,5 +13,5 @@
 🧪 Retrofit2 & OkHttp to network call ,and wrapper class to
    handling response state.
 🧪 Glide to load images   
-🧪 ROOM   
+🧪 ROOM Database     
 🧪 News API   
